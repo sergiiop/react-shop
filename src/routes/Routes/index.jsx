@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom'
+import { HashRouter, Route, Routes as Switch } from 'react-router-dom'
 import { useViews } from '../../views'
 
 const Routes = () => {
@@ -16,30 +16,22 @@ const Routes = () => {
   } = useScreens()
   const { PublicLayout } = useLayouts()
   return (
-    <BrowserRouter>
+    <HashRouter>
       <PublicLayout>
         <Switch>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/login' element={<Login />} />
-          <Route
-            exact
-            path='/recovery-password'
-            element={<RecoveryPassword />}
-          />
-          <Route exact path='/checkout' element={<Checkout />} />
-          <Route exact path='/create-account' element={<CreateAccount />} />
-          <Route exact path='/new-password' element={<NewPassword />} />
-          <Route exact path='/orders' element={<Orders />} />
-          <Route exact path='/send-email' element={<SendEmail />} />
-          <Route
-            exact
-            path='/recovery-password'
-            element={<RecoveryPassword />}
-          />
+          <Route index path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/recovery-password' element={<RecoveryPassword />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/create-account' element={<CreateAccount />} />
+          <Route path='/new-password' element={<NewPassword />} />
+          <Route path='/orders' element={<Orders />} />
+          <Route path='/send-email' element={<SendEmail />} />
+          <Route path='/recovery-password' element={<RecoveryPassword />} />
           <Route path='*' element={<NotFound />} />
         </Switch>
       </PublicLayout>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
